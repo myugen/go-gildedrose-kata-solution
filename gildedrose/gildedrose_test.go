@@ -3,7 +3,7 @@ package gildedrose_test
 import (
 	"testing"
 
-	"github.com/myugen/go-gildedrose/gildedrose"
+	"github.com/myugen/go-gildedrose-solution/gildedrose"
 )
 
 func TestUpdateQuality(t *testing.T) {
