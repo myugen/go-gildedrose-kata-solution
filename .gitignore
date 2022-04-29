@@ -1,0 +1,11 @@
+# JetBrains IDEs
+.idea/
+*.iml
+
+# Binary application
+go-gildedrose
+
+# Test coverage files
+cover.out
+coverage.out
+coverage
