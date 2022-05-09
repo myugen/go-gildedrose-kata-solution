@@ -14,6 +14,6 @@ func (e LegendaryEvaluator) Evaluate(item *item.Item) {
 	item.Quality = e.maximumQuality
 }
 
-func NewLegendaryItemEvaluator() LegendaryEvaluator {
+func NewLegendaryEvaluator() LegendaryEvaluator {
 	return LegendaryEvaluator{maximumQuality: LegendaryMaximumQuality}
 }

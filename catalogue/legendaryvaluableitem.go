@@ -13,7 +13,7 @@ type LegendaryValuableItem struct {
 func NewLegendaryValuableItem(item *item.Item) LegendaryValuableItem {
 	return LegendaryValuableItem{ValuableItem{
 		item:      item,
-		Evaluator: quality.NewLegendaryItemEvaluator(),
+		Evaluator: quality.NewLegendaryEvaluator(),
 		Expirer:   sellin.NewNoExpirer(),
 	}}
 }

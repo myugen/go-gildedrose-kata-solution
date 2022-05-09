@@ -9,7 +9,7 @@ import (
 )
 
 func TestLegendaryEvaluator_Evaluate(t *testing.T) {
-	evaluator := quality.NewLegendaryItemEvaluator()
+	evaluator := quality.NewLegendaryEvaluator()
 
 	type args struct {
 		item item.Item
