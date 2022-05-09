@@ -3,138 +3,138 @@ package gildedrose_test
 import (
 	"testing"
 
+	"github.com/myugen/go-gildedrose-solution/catalogue"
 	"github.com/myugen/go-gildedrose-solution/gildedrose"
+	"github.com/myugen/go-gildedrose-solution/item"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestUpdateQuality(t *testing.T) {
+	type args struct {
+		valuableItem catalogue.ValuableItem
+	}
+	type want struct {
+		sellIn  int
+		quality int
+	}
 	testcasesbyitems := map[string][]struct {
 		name string
-		item *gildedrose.Item
-		want *gildedrose.Item
+		args args
+		want want
 	}{
 		"+5 Dexterity Vest Item": {
 			{
 				name: "when day passes and sell-in field is greater than 0, quality decreases by 1",
-				item: &gildedrose.Item{
+				args: args{valuableItem: catalogue.NewRegularValuableItem(&item.Item{
 					Name:    "+5 Dexterity Vest",
 					SellIn:  10,
 					Quality: 20,
-				},
-				want: &gildedrose.Item{
-					Name:    "+5 Dexterity Vest",
-					SellIn:  9,
-					Quality: 19,
+				}).ValuableItem},
+				want: want{
+					sellIn:  9,
+					quality: 19,
 				},
 			},
 			{
 				name: "when day passes and sell-in field is lower or equal than 0, quality decreases by 2",
-				item: &gildedrose.Item{
+				args: args{valuableItem: catalogue.NewRegularValuableItem(&item.Item{
 					Name:    "+5 Dexterity Vest",
 					SellIn:  0,
 					Quality: 20,
-				},
-				want: &gildedrose.Item{
-					Name:    "+5 Dexterity Vest",
-					SellIn:  -1,
-					Quality: 18,
+				}).ValuableItem},
+				want: want{
+					sellIn:  -1,
+					quality: 18,
 				},
 			},
 		},
 		"Aged Brie Item": {
 			{
 				name: "when day passes and sell-in field is greater than 0, quality increases by 1",
-				item: &gildedrose.Item{
+				args: args{valuableItem: catalogue.NewAgedValuableItem(&item.Item{
 					Name:    "Aged Brie",
 					SellIn:  2,
 					Quality: 0,
-				},
-				want: &gildedrose.Item{
-					Name:    "Aged Brie",
-					SellIn:  1,
-					Quality: 1,
+				}).ValuableItem},
+				want: want{
+					sellIn:  1,
+					quality: 1,
 				},
 			},
 			{
-				name: "when time goes and sell-in field is lower or equal than 0, quality increases by 2",
-				item: &gildedrose.Item{
+				name: "when day passes and sell-in field is lower or equal than 0, quality increases by 2",
+				args: args{valuableItem: catalogue.NewAgedValuableItem(&item.Item{
 					Name:    "Aged Brie",
 					SellIn:  0,
 					Quality: 0,
-				},
-				want: &gildedrose.Item{
-					Name:    "Aged Brie",
-					SellIn:  -1,
-					Quality: 2,
+				}).ValuableItem},
+				want: want{
+					sellIn:  -1,
+					quality: 2,
 				},
 			},
 		},
 		"Sulfuras, Hand of Ragnaros Item": {
 			{
 				name: "when day passes quality doesn't change",
-				item: &gildedrose.Item{
+				args: args{valuableItem: catalogue.NewLegendaryValuableItem(&item.Item{
 					Name:    "Sulfuras, Hand of Ragnaros",
 					SellIn:  0,
 					Quality: 80,
-				},
-				want: &gildedrose.Item{
-					Name:    "Sulfuras, Hand of Ragnaros",
-					SellIn:  0,
-					Quality: 80,
+				}).ValuableItem},
+				want: want{
+					sellIn:  0,
+					quality: 80,
 				},
 			},
 		},
 		"Backstage passes to a TAFKAL80ETC concert Item": {
 			{
 				name: "when day passes and sell-in field is greater than 10, quality increases by 1",
-				item: &gildedrose.Item{
+				args: args{valuableItem: catalogue.NewEventualValuableItem(&item.Item{
 					Name:    "Backstage passes to a TAFKAL80ETC concert",
 					SellIn:  15,
 					Quality: 20,
-				},
-				want: &gildedrose.Item{
-					Name:    "Backstage passes to a TAFKAL80ETC concert",
-					SellIn:  14,
-					Quality: 21,
+				}).ValuableItem},
+				want: want{
+					sellIn:  14,
+					quality: 21,
 				},
 			},
 			{
 				name: "when day passes and sell-in field is between 10 and 5, quality increases by 2",
-				item: &gildedrose.Item{
+				args: args{valuableItem: catalogue.NewEventualValuableItem(&item.Item{
 					Name:    "Backstage passes to a TAFKAL80ETC concert",
 					SellIn:  10,
 					Quality: 20,
-				},
-				want: &gildedrose.Item{
-					Name:    "Backstage passes to a TAFKAL80ETC concert",
-					SellIn:  9,
-					Quality: 22,
+				}).ValuableItem},
+				want: want{
+					sellIn:  9,
+					quality: 22,
 				},
 			},
 			{
 				name: "when day passes and sell-in field is between 5 and 0, quality increases by 3",
-				item: &gildedrose.Item{
+				args: args{valuableItem: catalogue.NewEventualValuableItem(&item.Item{
 					Name:    "Backstage passes to a TAFKAL80ETC concert",
 					SellIn:  5,
 					Quality: 20,
-				},
-				want: &gildedrose.Item{
-					Name:    "Backstage passes to a TAFKAL80ETC concert",
-					SellIn:  4,
-					Quality: 23,
+				}).ValuableItem},
+				want: want{
+					sellIn:  4,
+					quality: 23,
 				},
 			},
 			{
 				name: "when day passes and sell-in field is equal to 0, quality falls to 0",
-				item: &gildedrose.Item{
+				args: args{valuableItem: catalogue.NewEventualValuableItem(&item.Item{
 					Name:    "Backstage passes to a TAFKAL80ETC concert",
 					SellIn:  0,
 					Quality: 20,
-				},
-				want: &gildedrose.Item{
-					Name:    "Backstage passes to a TAFKAL80ETC concert",
-					SellIn:  -1,
-					Quality: 0,
+				}).ValuableItem},
+				want: want{
+					sellIn:  -1,
+					quality: 0,
 				},
 			},
 		},
@@ -144,10 +144,9 @@ func TestUpdateQuality(t *testing.T) {
 		t.Run(name, func(t *testing.T) {
 			for _, testcase := range testcases {
 				t.Run(testcase.name, func(t *testing.T) {
-					items := []*gildedrose.Item{testcase.item}
-					gildedrose.UpdateQuality(items)
-					assert.Equal(t, testcase.want.SellIn, testcase.item.SellIn, "sell-in value not expected")
-					assert.Equal(t, testcase.want.Quality, testcase.item.Quality, "quality value not expected")
+					gildedrose.UpdateQuality(testcase.args.valuableItem)
+					assert.Equal(t, testcase.want.sellIn, testcase.args.valuableItem.Item().SellIn, "sell-in value not expected")
+					assert.Equal(t, testcase.want.quality, testcase.args.valuableItem.Item().Quality, "quality value not expected")
 				})
 			}
 		})
