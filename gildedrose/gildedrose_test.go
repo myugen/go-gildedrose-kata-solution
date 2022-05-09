@@ -138,6 +138,32 @@ func TestUpdateQuality(t *testing.T) {
 				},
 			},
 		},
+		"Conjured Mana Cake Item": {
+			{
+				name: "when day passes and sell-in field is greater than 0, quality decreases by 2",
+				args: args{valuableItem: catalogue.NewConjuredValuableItem(&item.Item{
+					Name:    "Conjured Mana Cake",
+					SellIn:  10,
+					Quality: 20,
+				}).ValuableItem},
+				want: want{
+					sellIn:  9,
+					quality: 18,
+				},
+			},
+			{
+				name: "when day passes and sell-in field is lower or equal than 0, quality decreases by 4",
+				args: args{valuableItem: catalogue.NewConjuredValuableItem(&item.Item{
+					Name:    "Conjured Mana Cake",
+					SellIn:  0,
+					Quality: 20,
+				}).ValuableItem},
+				want: want{
+					sellIn:  -1,
+					quality: 16,
+				},
+			},
+		},
 	}
 
 	for name, testcases := range testcasesbyitems {

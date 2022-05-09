@@ -22,7 +22,7 @@ func main() {
 		catalogue.NewEventualValuableItem(&item.Item{Name: "Backstage passes to a TAFKAL80ETC concert", SellIn: 15, Quality: 20}).ValuableItem,
 		catalogue.NewEventualValuableItem(&item.Item{Name: "Backstage passes to a TAFKAL80ETC concert", SellIn: 10, Quality: 49}).ValuableItem,
 		catalogue.NewEventualValuableItem(&item.Item{Name: "Backstage passes to a TAFKAL80ETC concert", SellIn: 5, Quality: 49}).ValuableItem,
-		catalogue.NewRegularValuableItem(&item.Item{Name: "Conjured Mana Cake", SellIn: 3, Quality: 6}).ValuableItem,
+		catalogue.NewConjuredValuableItem(&item.Item{Name: "Conjured Mana Cake", SellIn: 3, Quality: 6}).ValuableItem,
 	}
 
 	days := 2
