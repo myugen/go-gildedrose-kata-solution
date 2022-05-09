@@ -1,12 +1,12 @@
 package sellin
 
 import (
-	"github.com/myugen/go-gildedrose-solution/gildedrose"
+	"github.com/myugen/go-gildedrose-solution/item"
 )
 
 type NoExpirer struct{}
 
-func (NoExpirer) Expire(item *gildedrose.Item) {
+func (NoExpirer) Expire(item *item.Item) {
 	item.SellIn += 0
 }
 

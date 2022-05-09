@@ -1,14 +1,14 @@
 package quality
 
 import (
-	"github.com/myugen/go-gildedrose-solution/gildedrose"
+	"github.com/myugen/go-gildedrose-solution/item"
 )
 
 type RegularEvaluator struct {
 	minimumQuality int
 }
 
-func (e RegularEvaluator) Evaluate(item *gildedrose.Item) {
+func (e RegularEvaluator) Evaluate(item *item.Item) {
 	amountToDecrease := 1
 	if item.SellIn <= 0 {
 		amountToDecrease = 2

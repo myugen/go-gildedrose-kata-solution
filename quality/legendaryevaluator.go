@@ -1,7 +1,7 @@
 package quality
 
 import (
-	"github.com/myugen/go-gildedrose-solution/gildedrose"
+	"github.com/myugen/go-gildedrose-solution/item"
 )
 
 // A LegendaryEvaluator always evaluates the quality of an item with the maximum legendary quality
@@ -10,7 +10,7 @@ type LegendaryEvaluator struct {
 }
 
 // Evaluate always returns the legendary quality
-func (e LegendaryEvaluator) Evaluate(item *gildedrose.Item) {
+func (e LegendaryEvaluator) Evaluate(item *item.Item) {
 	item.Quality = e.maximumQuality
 }
 

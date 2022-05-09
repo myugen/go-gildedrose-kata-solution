@@ -3,7 +3,7 @@ package sellin_test
 import (
 	"testing"
 
-	"github.com/myugen/go-gildedrose-solution/gildedrose"
+	"github.com/myugen/go-gildedrose-solution/item"
 	"github.com/myugen/go-gildedrose-solution/sellin"
 	"github.com/stretchr/testify/assert"
 )
@@ -12,7 +12,7 @@ func TestRegularExpirer_Expire(t *testing.T) {
 	expirer := sellin.NewRegularExpirer()
 
 	type args struct {
-		item gildedrose.Item
+		item item.Item
 	}
 	type want struct {
 		sellIn int
@@ -24,7 +24,7 @@ func TestRegularExpirer_Expire(t *testing.T) {
 	}{
 		{
 			name: "should decrease by 1 the sell-in value when an item is provided",
-			args: args{item: gildedrose.Item{Name: "Regular-expired item", SellIn: 10, Quality: 9}},
+			args: args{item: item.Item{Name: "Regular-expired item", SellIn: 10, Quality: 9}},
 			want: want{sellIn: 9},
 		},
 	}

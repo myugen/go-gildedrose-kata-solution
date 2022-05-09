@@ -1,14 +1,14 @@
 package quality
 
 import (
-	"github.com/myugen/go-gildedrose-solution/gildedrose"
+	"github.com/myugen/go-gildedrose-solution/item"
 )
 
 type AgedEvaluator struct {
 	maximumQuality int
 }
 
-func (e AgedEvaluator) Evaluate(item *gildedrose.Item) {
+func (e AgedEvaluator) Evaluate(item *item.Item) {
 	amountToIncrease := 1
 	if item.SellIn <= 0 {
 		amountToIncrease = 2

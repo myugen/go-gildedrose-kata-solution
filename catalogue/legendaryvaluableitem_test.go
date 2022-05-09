@@ -4,14 +4,14 @@ import (
 	"testing"
 
 	"github.com/myugen/go-gildedrose-solution/catalogue"
-	"github.com/myugen/go-gildedrose-solution/gildedrose"
+	"github.com/myugen/go-gildedrose-solution/item"
 	"github.com/myugen/go-gildedrose-solution/quality"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestLegendaryValuableItem_Update(t *testing.T) {
 	type args struct {
-		item gildedrose.Item
+		item item.Item
 	}
 	type want struct {
 		sellIn  int
@@ -24,7 +24,7 @@ func TestLegendaryValuableItem_Update(t *testing.T) {
 	}{
 		{
 			name: "should keep in 80 the quality and remain the sell-in value when an item is provided",
-			args: args{item: gildedrose.Item{Name: "Legendary-evaluable item", SellIn: 10, Quality: 9}},
+			args: args{item: item.Item{Name: "Legendary-evaluable item", SellIn: 10, Quality: 9}},
 			want: want{sellIn: 10, quality: quality.LegendaryMaximumQuality},
 		},
 	}
