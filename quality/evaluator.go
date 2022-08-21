@@ -1,7 +1,7 @@
 package quality
 
 import (
-	"github.com/myugen/go-gildedrose-solution/item"
+	"github.com/myugen/go-gildedrose-kata-solution/item"
 )
 
 // An Evaluator evaluates the amount loss/gain quality

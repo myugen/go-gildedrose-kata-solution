@@ -3,8 +3,8 @@ package sellin_test
 import (
 	"testing"
 
-	"github.com/myugen/go-gildedrose-solution/item"
-	"github.com/myugen/go-gildedrose-solution/sellin"
+	"github.com/myugen/go-gildedrose-kata-solution/item"
+	"github.com/myugen/go-gildedrose-kata-solution/sellin"
 	"github.com/stretchr/testify/assert"
 )
 

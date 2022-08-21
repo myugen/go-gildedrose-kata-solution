@@ -1,9 +1,9 @@
 package catalogue
 
 import (
-	"github.com/myugen/go-gildedrose-solution/item"
-	"github.com/myugen/go-gildedrose-solution/quality"
-	"github.com/myugen/go-gildedrose-solution/sellin"
+	"github.com/myugen/go-gildedrose-kata-solution/item"
+	"github.com/myugen/go-gildedrose-kata-solution/quality"
+	"github.com/myugen/go-gildedrose-kata-solution/sellin"
 )
 
 type AgedValuableItem struct {

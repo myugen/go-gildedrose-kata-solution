@@ -3,8 +3,8 @@ package quality_test
 import (
 	"testing"
 
-	"github.com/myugen/go-gildedrose-solution/item"
-	"github.com/myugen/go-gildedrose-solution/quality"
+	"github.com/myugen/go-gildedrose-kata-solution/item"
+	"github.com/myugen/go-gildedrose-kata-solution/quality"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -1,7 +1,7 @@
 package sellin
 
 import (
-	"github.com/myugen/go-gildedrose-solution/item"
+	"github.com/myugen/go-gildedrose-kata-solution/item"
 )
 
 type RegularExpirer struct{}

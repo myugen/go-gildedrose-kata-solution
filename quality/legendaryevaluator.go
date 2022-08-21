@@ -1,7 +1,7 @@
 package quality
 
 import (
-	"github.com/myugen/go-gildedrose-solution/item"
+	"github.com/myugen/go-gildedrose-kata-solution/item"
 )
 
 // A LegendaryEvaluator always evaluates the quality of an item with the maximum legendary quality

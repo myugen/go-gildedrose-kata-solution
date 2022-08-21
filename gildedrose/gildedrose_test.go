@@ -3,9 +3,9 @@ package gildedrose_test
 import (
 	"testing"
 
-	"github.com/myugen/go-gildedrose-solution/catalogue"
-	"github.com/myugen/go-gildedrose-solution/gildedrose"
-	"github.com/myugen/go-gildedrose-solution/item"
+	"github.com/myugen/go-gildedrose-kata-solution/catalogue"
+	"github.com/myugen/go-gildedrose-kata-solution/gildedrose"
+	"github.com/myugen/go-gildedrose-kata-solution/item"
 	"github.com/stretchr/testify/assert"
 )
 
